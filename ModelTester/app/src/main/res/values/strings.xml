@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Model Tester</string>
+    <string name="main_greeting">Welcome to the Model Tester App!</string>
+    <string name="main_startup">Load model files to start:</string>
+    <string name="main_project_xml">Select XML-File</string>
+    <string name="main_project_tflite">Select TFLITE-File</string>
+    <string name="main_start">Start Testing</string>
+    <string name="machine_learning_heading">Machine Learning Time!</string>
+    <string name="machine_learning_label">Labels (%1s):</string>
+    <string name="machine_learning_auto_record_feature">Auto start:</string>
+    <string name="machine_learning_auto_record_vector">Sensitivity (%1d):</string>
+    <string name="machine_learning_start_recording">Tab to start the Recording</string>
+    <string name="machine_learning_is_recording">Currently Recording… Tab to stop</string>
+    <string name="machine_learning_is_waiting">Waiting for Gesture… Tab to stop</string>
+    <string name="machine_learning_auto_stop">Auto stop:</string>
+    <string name="machine_learning_frames">Frames (%1d):</string>
+    <string name="machine_learning_project">Project: %1s</string>
+</resources>
