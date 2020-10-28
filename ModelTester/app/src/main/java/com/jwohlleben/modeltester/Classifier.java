@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 
 import org.tensorflow.lite.Interpreter;
+import org.tensorflow.lite.support.common.FileUtil;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -31,12 +32,7 @@ public class Classifier
 
     private MappedByteBuffer loadModelFile() throws IOException
     {
-        AssetFileDescriptor fileDescriptor = context.getAssets().openFd(modelPath);
-        FileInputStream inputStream = new FileInputStream(fileDescriptor.getFileDescriptor());
-        FileChannel fileChannel = inputStream.getChannel();
-        long startOffset = fileDescriptor.getStartOffset();
-        long declaredLength = fileDescriptor.getDeclaredLength();
-        return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength);
+        return FileUtil.loadMappedFile(context, modelPath);
     }
 
     private float[][] listToArray(List<float[]> values)
@@ -69,7 +65,7 @@ public class Classifier
     {
         try
         {
-            tflite = new Interpreter(new File(modelPath));
+            tflite = new Interpreter(loadModelFile());
         }
 
         catch (Exception e)
